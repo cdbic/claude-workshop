@@ -1,0 +1,60 @@
+date,product,category,quantity,unit_price,payment_method
+2026-06-01,Flat White,Coffee,42,4.20,card
+2026-06-01,Espresso,Coffee,31,2.80,cash
+2026-06-01,Croissant,Pastry,25,3.50,card
+2026-06-01,Iced Latte,Cold Drinks,18,4.80,mobile
+2026-06-02,Flat White,Coffee,39,4.20,card
+2026-06-02,Cappuccino,Coffee,28,4.00,mobile
+2026-06-02,Banana Bread,Pastry,14,3.80,card
+2026-06-02,Cold Brew,Cold Drinks,12,4.50,mobile
+2026-06-03,Flat White,Coffee,45,4.20,card
+2026-06-03,Espresso,Coffee,27,2.80,cash
+2026-06-03,Croissant,Pastry,22,3.50,card
+2026-06-03,Iced Latte,Cold Drinks,15,4.80,mobile
+2026-06-04,Cappuccino,Coffee,33,4.00,card
+2026-06-04,Flat White,Coffee,41,4.20,mobile
+2026-06-04,Banana Bread,Pastry,17,3.80,cash
+2026-06-04,Cold Brew,Cold Drinks,19,4.50,mobile
+2026-06-05,Flat White,Coffee,48,4.20,card
+2026-06-05,Espresso,Coffee,25,2.80,cash
+2026-06-05,Croissant,Pastry,30,3.50,card
+2026-06-05,Iced Latte,Cold Drinks,24,4.80,mobile
+2026-06-06,Flat White,Coffee,63,4.20,card
+2026-06-06,Cappuccino,Coffee,47,4.00,mobile
+2026-06-06,Croissant,Pastry,41,3.50,card
+2026-06-06,Cold Brew,Cold Drinks,35,4.50,mobile
+2026-06-06,Banana Bread,Pastry,28,3.80,card
+2026-06-07,Flat White,Coffee,71,4.20,mobile
+2026-06-07,Iced Latte,Cold Drinks,44,4.80,mobile
+2026-06-07,Cappuccino,Coffee,52,4.00,card
+2026-06-07,Croissant,Pastry,46,3.50,card
+2026-06-07,Espresso,Coffee,20,2.80,cash
+2026-06-08,Flat White,Coffee,40,4.20,card
+2026-06-08,Espresso,Coffee,29,2.80,cash
+2026-06-08,Cold Brew,Cold Drinks,21,4.50,mobile
+2026-06-08,Banana Bread,Pastry,15,3.80,card
+2026-06-09,Cappuccino,Coffee,31,4.00,mobile
+2026-06-09,Flat White,Coffee,43,4.20,card
+2026-06-09,Croissant,Pastry,24,3.50,cash
+2026-06-09,Iced Latte,Cold Drinks,17,4.80,mobile
+2026-06-10,Flat White,Coffee,44,4.20,mobile
+2026-06-10,Espresso,Coffee,26,2.80,cash
+2026-06-10,Banana Bread,Pastry,19,3.80,card
+2026-06-10,Cold Brew,Cold Drinks,22,4.50,mobile
+2026-06-11,Flat White,Coffee,46,4.20,card
+2026-06-11,Cappuccino,Coffee,30,4.00,card
+2026-06-11,Croissant,Pastry,27,3.50,mobile
+2026-06-11,Iced Latte,Cold Drinks,20,4.80,mobile
+2026-06-12,Flat White,Coffee,49,4.20,card
+2026-06-12,Espresso,Coffee,24,2.80,cash
+2026-06-12,Banana Bread,Pastry,16,3.80,card
+2026-06-12,Cold Brew,Cold Drinks,26,4.50,mobile
+2026-06-13,Flat White,Coffee,66,4.20,mobile
+2026-06-13,Cappuccino,Coffee,49,4.00,card
+2026-06-13,Croissant,Pastry,44,3.50,card
+2026-06-13,Iced Latte,Cold Drinks,38,4.80,mobile
+2026-06-14,Flat White,Coffee,69,4.20,mobile
+2026-06-14,Cold Brew,Cold Drinks,41,4.50,mobile
+2026-06-14,Cappuccino,Coffee,55,4.00,card
+2026-06-14,Banana Bread,Pastry,33,3.80,card
+2026-06-14,Espresso,Coffee,22,2.80,cash

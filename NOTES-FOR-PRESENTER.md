@@ -2,6 +2,8 @@
 
 This repo is the one asset shared by all three demo-only afternoon blocks.
 
+All day-of materials live in `workshop/`: `slides.md` (Marp deck), `lab1-handout.md` + `lab2-handout.md` + `data/coffee_sales.csv` (attendee labs), `cheatsheet.md` (wrap-up), `prework-email.md`, `cohost-onepager.md`. Note: `workshop/` will be visible on screen during the CLI demo — either mention it's the workshop's own material, or `mv` it out beforehand.
+
 ## 14:35 Claude Code CLI walkthrough
 - Live-build target: add a `search <term>` subcommand to `notes_cli/cli.py` + `storage.py` (not built yet — build it live).
 - Shows: session/token visibility, prompt → tool calls → verify loop.
