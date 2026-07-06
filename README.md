@@ -4,17 +4,16 @@ A tiny, stdlib-only Python notes CLI. Built as a throwaway demo project for a Cl
 
 ## Prerequisites
 
-**Workshop attendee** — nothing to install. A laptop, a browser, and a free account at https://claude.ai (see `workshop/prework-email.md`).
+**Workshop attendee** — nothing to install. A laptop, a browser, and a free account at https://claude.ai.
 
 **Running the CLI / cloning this repo** — Python 3.8+ only (stdlib, no pip installs).
 
 **Presenter / full demo setup — macOS/Linux:**
 
 ```bash
-brew bundle                                   # marp-cli + rtk + ant (see Brewfile)
+brew bundle                                   # marp-cli + rtk (see Brewfile)
 npm install -g @anthropic-ai/claude-code      # Claude Code CLI (needs Pro/Max or an API key)
 rtk trust                                     # one-time: enable this repo's .rtk/filters.toml
-ant auth login                                # one-time: auth for the token-counter demo (or export ANTHROPIC_API_KEY)
 marp workshop/slides.md -o slides.html        # render the deck (press `p` in browser for presenter view)
 ```
 
@@ -26,7 +25,7 @@ rtk trust          # after installing rtk from https://github.com/rtk-ai/rtk/rel
 marp workshop/slides.md -o slides.html
 ```
 
-Also needed for the demos: a Claude **Pro/Max** subscription (Claude Code + Cowork are not on the free tier) and the Claude desktop app for the Cowork segment.
+Also needed for the demos: a Claude **Pro/Max** subscription (Claude Code + Cowork are not on the free tier), the Claude desktop app for the Cowork segment, and — on Windows — PowerShell 7 (`pwsh`) on PATH for the token/context status line (see `workshop/token-demo.md`).
 
 ## OS support
 
@@ -40,9 +39,9 @@ Notes:
 
 `workshop/ai-brain-setup.sh` (bash, macOS/Linux) and `workshop/ai-brain-setup.ps1` (PowerShell, Windows) are the presenter's machine-bootstrap script for the "AI brain" setup shown in the afternoon segment: one idempotent script that writes eight skills (as heredoc'd/here-string markdown) into `~/.claude/skills/` and lays out the knowledge-hub directories. Both are included to **read, not run** — they target the global Claude config and their cleanup step deletes flat `*.md` files in `~/.claude/skills/`; the header comments have the details. Adapt the paths before using either for your own setup.
 
-## Token-counter demo
+## Token & context live demo
 
-The Claude 101 "live token counting" beat is documented in `workshop/token-demo.md`, with three paths: `workshop/count_tokens.py` (Python SDK, any OS — recommended), the `ant` CLI (macOS/Linux, in the Brewfile), or the browser Workbench (zero install). Options A and B need a free Console API key; the counting endpoint itself is free.
+The Claude 101 "live token counting" beat is documented in `workshop/token-demo.md`: Claude Code's own status line (`.claude/statusline.ps1`, already wired in `.claude/settings.json`) shows context usage, session cost, rate limits, and tokens burned live — no API key needed. Requires `pwsh` (PowerShell 7) on PATH. claude.ai is the zero-install fallback.
 
 ## Usage
 

@@ -51,9 +51,9 @@ A one-day hands-on workshop
 - **Context window** = how many tokens the model can hold in one conversation
 - When the window fills up: older content is dropped or summarized
 
-**Live demo:** count tokens on a real document via the token-counting API
+**Live demo:** watch context %, cost, and tokens burned climb live in Claude Code's status line
 
-<!-- Demo: full instructions + fallbacks in workshop/token-demo.md. Quick version: `python3 workshop/count_tokens.py README.md`, then compare the same sentence in English vs. code vs. emoji — different token counts. -->
+<!-- Demo: full instructions + fallback in workshop/token-demo.md. Quick version: have `claude` already running in this repo (status line wired via .claude/settings.json), paste a large file into a prompt, and point at the context bar jumping. -->
 
 ---
 

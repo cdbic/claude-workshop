@@ -2,7 +2,7 @@
 
 This repo is the one asset shared by all three demo-only afternoon blocks.
 
-All day-of materials live in `workshop/`: `slides.md` (Marp deck), `lab1-handout.md` + `lab2-handout.md` + `data/coffee_sales.csv` (attendee labs), `cheatsheet.md` (wrap-up), `prework-email.md`, `cohost-onepager.md`. Note: `workshop/` will be visible on screen during the CLI demo — either mention it's the workshop's own material, or `mv` it out beforehand.
+All day-of materials live in `workshop/`: `slides.md` (Marp deck), `lab1-handout.md` + `lab2-handout.md` + `data/coffee_sales.csv` (attendee labs), `cheatsheet.md` (wrap-up), `cohost-onepager.md`. Note: `workshop/` will be visible on screen during the CLI demo — either mention it's the workshop's own material, or `mv` it out beforehand.
 
 ## 14:35 Claude Code CLI walkthrough
 - Open with `/grill-me` on the feature idea ("add search to the notes CLI") — let it ask 2-3 questions, answer live, show the SPEC/VERIFIER/ENVIRONMENT brief it produces. This is the segue from "prompting" to "working with an agent".

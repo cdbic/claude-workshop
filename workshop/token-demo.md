@@ -1,39 +1,46 @@
-# Token-counter demo (Claude 101, ~10:00)
+# Token & context live demo (Claude 101, ~10:00)
 
-Live demo for the "Tokens: the unit of everything" slide. Three ways to run it, most portable first. Options A and B need an API key from https://platform.claude.com (free account — the token-counting endpoint itself costs nothing).
+Live demo for the "Tokens: the unit of everything" slide. Uses Claude Code's own status line — no separate API key, no extra platform credits, just data Claude Code already tracks for the session.
 
-## Option A — Python script (any OS, recommended)
+## What it shows
 
-```bash
-pip install anthropic
-export ANTHROPIC_API_KEY=sk-ant-...        # PowerShell: $env:ANTHROPIC_API_KEY="sk-ant-..."
+`.claude/statusline.ps1` reads the JSON Claude Code feeds every status line update and prints:
 
-python3 workshop/count_tokens.py README.md
-python3 workshop/count_tokens.py "the cat sat on the mat"
-python3 workshop/count_tokens.py "for i in range(10): print(i)"
-python3 workshop/count_tokens.py "🐱🐱🐱🐱🐱🐱"
+- Context window usage — a 10-block bar and `%`
+- Session cost so far (USD)
+- Rate limit remaining — 5-hour session window and 7-day weekly window (Pro/Max only, appears after the first response)
+- Cumulative tokens burned this session (summed from the transcript file, since the status line JSON only exposes the *last* API call's usage)
+
+## Install (already wired for this repo)
+
+`.claude/settings.json` already points `statusLine` at the script:
+
+```json
+"statusLine": {
+  "type": "command",
+  "command": "pwsh -NoProfile -File \"$CLAUDE_PROJECT_DIR/.claude/statusline.ps1\""
+}
 ```
 
-The three-string comparison is the on-stage beat: plain English tokenizes cheapest, code costs more, emoji cost the most — same character count, wildly different token counts.
+Requirements:
+- **PowerShell 7 (`pwsh`) on PATH.** Not the legacy `powershell.exe` — on this machine (and likely others with a hardened default), Windows PowerShell 5.1 is locked to the `AllSigned` execution policy and refuses to run an unsigned local script. `pwsh` defaults to `RemoteSigned`, which allows it. Install from https://github.com/PowerShell/PowerShell/releases or `winget install Microsoft.PowerShell` if `pwsh` isn't already on PATH.
+- Nothing else — the script only reads stdin JSON and the transcript file Claude Code already writes.
 
-## Option B — Anthropic CLI (macOS / Linux)
+Cloning this repo and opening it with Claude Code is enough; the status line appears automatically once you accept the workspace trust prompt.
 
-```bash
-brew install --cask anthropics/tap/ant     # already in this repo's Brewfile (it's a cask)
-ant auth login                             # or export ANTHROPIC_API_KEY
-ant messages count-tokens --model claude-sonnet-5 \
-  --message '{role: user, content: "@./README.md"}' \
-  --transform input_tokens -r
-```
+## On-stage beat
 
-On Windows: download `ant_<version>_windows_amd64.zip` from https://github.com/anthropics/anthropic-cli/releases and put `ant.exe` on PATH (no package-manager entry), use `go install github.com/anthropics/anthropic-cli/cmd/ant@latest`, or just use Option A.
+1. Open `claude` in this repo (status line visible at the bottom).
+2. Send a couple of prompts — point at the context `%` and cost ticking up live.
+3. Paste a large file (e.g. `README.md`) into a prompt and show the context bar jump — ties directly to "when the window fills up: older content is dropped or summarized."
 
-## Option C — zero install (any OS, browser)
+## Fallback — claude.ai (zero install)
 
-The Console Workbench at https://platform.claude.com shows input/output token usage for every run — paste the same three strings and compare. Less terminal-flavored, but works when nothing is installed.
+If nothing is installed, open claude.ai and talk through the concepts (tokens, context window, billing) without live numbers.
 
 ## Presenter checklist
 
-- [ ] API key exported in the demo terminal *before* the session (don't type a key on screen)
-- [ ] `pip install anthropic` done during dry-run, not live
-- [ ] The three comparison strings ready to paste
+- [ ] `pwsh` installed and on PATH before the session
+- [ ] `claude` already running in this repo, status line visible, before going on stage
+- [ ] Send one throwaway message beforehand — rate limit fields only appear after the first API response
+- [ ] A large file ready to paste (e.g. `README.md`) to show the context jump
