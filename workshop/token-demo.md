@@ -26,7 +26,7 @@ ant messages count-tokens --model claude-sonnet-5 \
   --transform input_tokens -r
 ```
 
-No native Windows package — on Windows use WSL, `go install github.com/anthropics/anthropic-cli/cmd/ant@latest`, or just Option A.
+On Windows: download `ant_<version>_windows_amd64.zip` from https://github.com/anthropics/anthropic-cli/releases and put `ant.exe` on PATH (no package-manager entry), use `go install github.com/anthropics/anthropic-cli/cmd/ant@latest`, or just use Option A.
 
 ## Option C — zero install (any OS, browser)
 
