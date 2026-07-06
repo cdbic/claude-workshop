@@ -6,6 +6,16 @@ $data = $input | Out-String | ConvertFrom-Json
 $model = $data.model.display_name
 $dir = Split-Path $data.workspace.current_dir -Leaf
 
+function Format-Count($n) {
+    if ($n -ge 1000000) {
+        $v = $n / 1000000
+        if ($v -eq [math]::Floor($v)) { return "{0}M" -f [int]$v } else { return "{0:N2}M" -f $v }
+    } elseif ($n -ge 1000) {
+        $v = $n / 1000
+        if ($v -eq [math]::Floor($v)) { return "{0}k" -f [int]$v } else { return "{0:N2}k" -f $v }
+    } else { return "$n" }
+}
+
 $pct = 0
 if ($null -ne $data.context_window.used_percentage) {
     $pct = [math]::Round($data.context_window.used_percentage)
@@ -13,6 +23,10 @@ if ($null -ne $data.context_window.used_percentage) {
 $barWidth = 10
 $filled = [math]::Floor($pct * $barWidth / 100)
 $bar = ('#' * $filled) + ('.' * ($barWidth - $filled))
+
+$ctxMaxFmt = if ($null -ne $data.context_window.context_window_size) {
+    Format-Count $data.context_window.context_window_size
+} else { "?" }
 
 $cost = 0
 if ($null -ne $data.cost.total_cost_usd) { $cost = $data.cost.total_cost_usd }
@@ -52,9 +66,7 @@ if ($transcriptPath -and (Test-Path $transcriptPath)) {
     }
 }
 
-$tokensFmt = if ($tokensBurned -ge 1000000) { "{0:N2}M" -f ($tokensBurned / 1000000) }
-    elseif ($tokensBurned -ge 1000) { "{0:N2}k" -f ($tokensBurned / 1000) }
-    else { "$tokensBurned" }
+$tokensFmt = Format-Count $tokensBurned
 
-Write-Host "[$model] $dir | ctx $bar $pct% | $costFmt"
+Write-Host "[$model] $dir | ctx $bar $pct% (max $ctxMaxFmt) | $costFmt"
 Write-Host "$sessionStr | $weekStr | $tokensFmt tokens"
