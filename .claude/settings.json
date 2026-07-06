@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/rtk-guardrail.py"
+            "command": "sh -c 'exec \"$(command -v python3 || command -v python)\" \"$CLAUDE_PROJECT_DIR/.claude/hooks/rtk-guardrail.py\"'"
           }
         ]
       }

@@ -8,7 +8,7 @@ A tiny, stdlib-only Python notes CLI. Built as a throwaway demo project for a Cl
 
 **Running the CLI / cloning this repo** — Python 3.8+ only (stdlib, no pip installs).
 
-**Presenter / full demo setup:**
+**Presenter / full demo setup — macOS/Linux:**
 
 ```bash
 brew bundle                                   # marp-cli + rtk (see Brewfile)
@@ -17,7 +17,19 @@ rtk trust                                     # one-time: enable this repo's .rt
 marp workshop/slides.md -o slides.html        # render the deck (press `p` in browser for presenter view)
 ```
 
+**Presenter / full demo setup — Windows:**
+
+```powershell
+.\setup.ps1        # marp-cli + Claude Code via npm; prints rtk install pointer
+rtk trust          # after installing rtk from https://github.com/rtk-ai/rtk/releases
+marp workshop/slides.md -o slides.html
+```
+
 Also needed for the demos: a Claude **Pro/Max** subscription (Claude Code + Cowork are not on the free tier) and the Claude desktop app for the Cowork segment.
+
+## OS support
+
+Everything is OS-agnostic in practice: the CLI and tests are stdlib Python (macOS/Linux/Windows), slides render anywhere marp-cli runs (npm), Claude Code and the Claude desktop app (Cowork) ship for Mac and Windows, and rtk has macOS/Linux packages plus Windows binaries. The guardrail hook resolves `python3` or `python` (whichever exists) and no-ops entirely when rtk is absent; on Windows, Claude Code runs Bash-tool commands through Git Bash, which is also where the hook executes.
 
 Notes:
 - The RTK guardrail hook (`.claude/settings.json` → `.claude/hooks/rtk-guardrail.py`) silently no-ops if `rtk` isn't installed — cloning without rtk changes nothing.
