@@ -53,7 +53,19 @@ A one-day hands-on workshop
 
 **Live demo:** watch context %, cost, and tokens burned climb live in Claude Code's status line
 
-<!-- Demo: full instructions + fallback in workshop/token-demo.md. Quick version: have `claude` already running in this repo (status line wired via .claude/settings.json), paste a large file into a prompt, and point at the context bar jumping. -->
+<!-- Demo: full instructions + fallback in workshop/token-demo.md. Two beats:
+
+BEAT 1 — context jump. Have `claude` already running in this repo (status line wired via
+.claude/settings.json). Paste a large file into a prompt (e.g. "summarize this: " + paste
+README.md) and point at the context bar and cost jumping.
+
+BEAT 2 — same length, different token cost. Paste these three, one per turn, and read the
+"tokens burned" delta after each — similar character count, wildly different token cost:
+  Plain English: "The quick brown fox jumps over the lazy dog and runs to the barn."
+  Code:          "for i in range(10): print(i**2 if i % 2 == 0 else i**3)"
+  Emoji:         "🐱🦊🐶🐮🐷🐔🐴🐑🐐🦆"
+Point to make: tokenization isn't "one token per word" — code and emoji cost more per
+character than plain English. This is why the same-looking prompt can be cheap or expensive. -->
 
 ---
 
@@ -76,7 +88,29 @@ Three levers that matter more than any "magic words":
 
 **Live:** 3 before/after prompt pairs
 
-<!-- Before/after pairs: (1) "write a blog post" vs. audience+tone+length spec; (2) extraction task without vs. with an example; (3) one-shot vs. iterate-twice. Run them live in claude.ai. -->
+<!-- Before/after pairs — paste each into claude.ai live, read the diff in output quality out loud.
+
+(1) SPECIFICITY
+Before: "Write a blog post about remote work."
+After:  "Write a 300-word blog post for early-stage startup founders about remote work.
+         Conversational tone, no corporate speak. End with one concrete, actionable tip."
+
+(2) EXAMPLES (one-shot extraction)
+Before: "Extract the name, company, and role from this signature:
+         'Best, Jamie Chen, VP of Engineering at Acme Robotics'"
+After:  "Extract name, company, role as JSON.
+         Example — Input: 'Thanks, Sam Ortiz, Head of Sales, Northwind Traders'
+         Output: {"name": "Sam Ortiz", "company": "Northwind Traders", "role": "Head of Sales"}
+         Now do this one: 'Best, Jamie Chen, VP of Engineering at Acme Robotics'"
+
+(3) ITERATION
+One-shot:        "Write a tagline for a coffee subscription box." — take whatever comes back, stop.
+Iterate-twice:   same first prompt, then:
+                 Turn 2: "Make it punchier — under 6 words."
+                 Turn 3: "Give me 3 variations: one funny, one premium, one minimal."
+
+Point to make each time: the second version isn't a "better prompt" trick — it's the same three
+levers on the slide (specificity, examples, iteration) made concrete. -->
 
 ---
 
@@ -86,6 +120,27 @@ Three levers that matter more than any "magic words":
 - **Knowledge cutoff**: training data ends months ago; web search closes the gap
 - **Context loss**: very long chats degrade — the model "forgets" early details
 - Rule of thumb: great **thought partner**, unreliable **source of record**
+
+<!-- Three quick live prompts in claude.ai, one per failure mode:
+
+HALLUCINATION: "What page in Kahneman's 'Thinking, Fast and Slow' does he first introduce
+System 1 vs System 2?" — Claude will typically state a specific page number confidently.
+It's very likely wrong (or unverifiable) — Claude has no page-accurate memory of any book.
+Point to make: the *confidence* of the answer doesn't correlate with its *correctness*.
+
+KNOWLEDGE CUTOFF: "What's today's top news headline?" or "What's the latest version of
+[a fast-moving tool/library the room uses]?" — good response is Claude flagging it doesn't
+have real-time access and naming its training cutoff, rather than guessing. Contrast with
+the hallucination prompt: here honesty is the good outcome, and it's worth pointing out
+that "search the web" (a tool) is the actual fix, not a better prompt.
+
+CONTEXT LOSS (optional, time-permitting — harder to trigger reliably in a short demo):
+early in a *fresh* chat say "My favorite color is teal and my cat is named Waffles." Then
+paste a long unrelated document (e.g. README.md or a large lab handout) and ask a few
+questions about it. Finally ask "What's my cat's name?" In a short demo this often still
+works fine — if it does, say so honestly and explain this is a *gradual* degradation over
+much longer/compacted conversations, not a hard wall. Don't oversell a live failure that may
+not reproduce on the day. -->
 
 ---
 
