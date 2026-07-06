@@ -19,7 +19,7 @@ The three-string comparison is the on-stage beat: plain English tokenizes cheape
 ## Option B — Anthropic CLI (macOS / Linux)
 
 ```bash
-brew install anthropics/tap/ant            # already in this repo's Brewfile
+brew install --cask anthropics/tap/ant     # already in this repo's Brewfile (it's a cask)
 ant auth login                             # or export ANTHROPIC_API_KEY
 ant messages count-tokens --model claude-sonnet-5 \
   --message '{role: user, content: "@./README.md"}' \
