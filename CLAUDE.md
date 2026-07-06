@@ -27,3 +27,13 @@ python -m unittest tests.test_cli
 
 - Keep it stdlib-only. No dependencies unless a live demo specifically calls for adding one.
 - This repo is reused across three workshop segments — see `NOTES-FOR-PRESENTER.md` for what each one needs.
+
+## RTK
+
+Read-only shell commands go through `rtk` (token-optimized CLI proxy): `rtk git status`, `rtk grep`, `rtk ls`. A PreToolUse hook (`.claude/hooks/rtk-guardrail.py`, wired in `.claude/settings.json`) blocks bare `git`/`grep`/`ls`/`find`/`tail`/`wc`, destructive git operations, and plaintext secrets. If `rtk` isn't installed the hook no-ops. Custom output filters live in `.rtk/filters.toml`; `rtk gain` shows cumulative token savings.
+
+## Skills
+
+- `/grill-me` — interrogate a vague task into a SPEC/VERIFIER/ENVIRONMENT brief before building.
+- `/compound` — capture what a session learned into `.claude/wiki/` (and `--audit` the wiki's health).
+- `/changelog`, `/code-review` — small single-purpose examples.

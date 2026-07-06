@@ -166,14 +166,18 @@ You are the copy-paste layer. That's the bottleneck.
 ## Demo 1 — Claude Code CLI (60 min)
 
 - Install, first session, where tokens show up
+- `/grill-me`: a skill that interrogates a vague idea into a precise spec
 - The loop: prompt → read/edit/run → verify → repeat
 - Live build: add a `search` command to a small notes CLI
+- Guardrails: a hook that enforces house rules on every command
 
 ## Demo 2 — Skills, schedules & the AI brain (45 min)
 
-- **Skills**: reusable workflows in a markdown file
+- **Skills**: reusable workflows in a markdown file — incl. the `/grill-me` you just saw
+- **`/compound`**: capture what a session learned into the project wiki — knowledge that compounds
 - **Schedules**: agents that run on a cron, without you
 - **Memory**: CLAUDE.md, per-project wikis, persistent memory dirs
+- **RTK**: a token-saving proxy layer — same work, ~80-90% fewer tokens on shell output
 
 ## Demo 3 — Claude Cowork (20 min)
 

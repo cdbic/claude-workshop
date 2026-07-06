@@ -1,0 +1,14 @@
+schema_version = 1
+
+# Illustrative custom filter: collapse unittest output to failures + summary.
+# Run through rtk to apply: `rtk python3 -m unittest tests.test_cli`
+[filters.unittest]
+description = "python -m unittest — keep failures and final summary only"
+match_command = "^python3? -m unittest\\b"
+strip_ansi = true
+strip_lines_matching = [
+  "^\\.+$",                       # progress dots
+  "^ok$",                          # per-test ok lines (verbose mode)
+  "^-{10,}$",                      # separator rules
+]
+max_lines = 40
