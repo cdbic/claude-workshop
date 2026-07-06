@@ -12,3 +12,9 @@ if (-not (Get-Command rtk -ErrorAction SilentlyContinue)) {
 } else {
     Write-Host "rtk found - remember to run 'rtk trust' once inside this repo"
 }
+
+# pwsh (PowerShell 7) runs the token/context status line (.claude/statusline.ps1) —
+# legacy Windows PowerShell 5.1 may be locked to AllSigned and refuse to run it.
+if (-not (Get-Command pwsh -ErrorAction SilentlyContinue)) {
+    Write-Host "pwsh not found - required for the status-line demo. Install: winget install --id Microsoft.PowerShell"
+}

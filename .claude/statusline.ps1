@@ -18,10 +18,21 @@ $cost = 0
 if ($null -ne $data.cost.total_cost_usd) { $cost = $data.cost.total_cost_usd }
 $costFmt = '$' + ("{0:F2}" -f $cost)
 
+function Format-ResetIn($epochSeconds) {
+    if (-not $epochSeconds) { return $null }
+    $span = [DateTimeOffset]::FromUnixTimeSeconds($epochSeconds).LocalDateTime - (Get-Date)
+    if ($span.TotalSeconds -le 0) { return "now" }
+    if ($span.TotalDays -ge 1) { return "{0}d{1}h" -f [int]$span.TotalDays, $span.Hours }
+    if ($span.TotalHours -ge 1) { return "{0}h{1}m" -f [int]$span.TotalHours, $span.Minutes }
+    return "{0}m" -f [int]$span.TotalMinutes
+}
+
 $fiveH = $data.rate_limits.five_hour.used_percentage
 $sevenD = $data.rate_limits.seven_day.used_percentage
-$sessionStr = if ($null -ne $fiveH) { "session $([math]::Round(100 - $fiveH))% left" } else { "session n/a" }
-$weekStr = if ($null -ne $sevenD) { "week $([math]::Round(100 - $sevenD))% left" } else { "week n/a" }
+$fiveHReset = Format-ResetIn $data.rate_limits.five_hour.resets_at
+$sevenDReset = Format-ResetIn $data.rate_limits.seven_day.resets_at
+$sessionStr = if ($null -ne $fiveH) { "session $([math]::Round(100 - $fiveH))% left (resets ${fiveHReset})" } else { "session n/a" }
+$weekStr = if ($null -ne $sevenD) { "week $([math]::Round(100 - $sevenD))% left (resets ${sevenDReset})" } else { "week n/a" }
 
 # Cumulative tokens burned this session: statusline JSON only gives the last
 # API call's usage, so sum every assistant turn's usage block from the transcript instead.

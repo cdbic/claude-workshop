@@ -8,7 +8,13 @@ NOTES_FILE = Path("notes.json")
 def _load():
     if not NOTES_FILE.exists():
         return []
-    return json.loads(NOTES_FILE.read_text())
+    text = NOTES_FILE.read_text().strip()
+    if not text:
+        return []
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        return []
 
 
 def _save(notes):
