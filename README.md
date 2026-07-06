@@ -37,7 +37,11 @@ Notes:
 
 ## AI brain bootstrap (showcase)
 
-`workshop/ai-brain-setup.sh` is the presenter's real machine-bootstrap script for the "AI brain" setup shown in the afternoon segment: one idempotent shell script that writes eight skills (as heredoc'd markdown) into `~/.claude/skills/` and lays out the knowledge-hub directories. It is included to **read, not run** — it targets the global Claude config and its cleanup step deletes flat `*.md` files in `~/.claude/skills/`; the header comment has the details. Adapt the paths before using it for your own setup.
+`workshop/ai-brain-setup.sh` (bash, macOS/Linux) and `workshop/ai-brain-setup.ps1` (PowerShell, Windows) are the presenter's machine-bootstrap script for the "AI brain" setup shown in the afternoon segment: one idempotent script that writes eight skills (as heredoc'd/here-string markdown) into `~/.claude/skills/` and lays out the knowledge-hub directories. Both are included to **read, not run** — they target the global Claude config and their cleanup step deletes flat `*.md` files in `~/.claude/skills/`; the header comments have the details. Adapt the paths before using either for your own setup.
+
+## Token-counter demo
+
+The Claude 101 "live token counting" beat is documented in `workshop/token-demo.md`, with three paths: `workshop/count_tokens.py` (Python SDK, any OS — recommended), the `ant` CLI (macOS/Linux, in the Brewfile), or the browser Workbench (zero install). Options A and B need a free Console API key; the counting endpoint itself is free.
 
 ## Usage
 

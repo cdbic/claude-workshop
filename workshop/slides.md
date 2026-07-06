@@ -53,7 +53,7 @@ A one-day hands-on workshop
 
 **Live demo:** count tokens on a real document via the token-counting API
 
-<!-- Demo: `ant messages count-tokens --model claude-sonnet-5 --message '{role: user, content: "@./README.md"}'` or the Console workbench which shows usage per run. Show the same sentence in English vs. code vs. emoji — different token counts. -->
+<!-- Demo: full instructions + fallbacks in workshop/token-demo.md. Quick version: `python3 workshop/count_tokens.py README.md`, then compare the same sentence in English vs. code vs. emoji — different token counts. -->
 
 ---
 
