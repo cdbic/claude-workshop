@@ -11,9 +11,10 @@ A tiny, stdlib-only Python notes CLI. Built as a throwaway demo project for a Cl
 **Presenter / full demo setup — macOS/Linux:**
 
 ```bash
-brew bundle                                   # marp-cli + rtk (see Brewfile)
+brew bundle                                   # marp-cli + rtk + ant (see Brewfile)
 npm install -g @anthropic-ai/claude-code      # Claude Code CLI (needs Pro/Max or an API key)
 rtk trust                                     # one-time: enable this repo's .rtk/filters.toml
+ant auth login                                # one-time: auth for the token-counter demo (or export ANTHROPIC_API_KEY)
 marp workshop/slides.md -o slides.html        # render the deck (press `p` in browser for presenter view)
 ```
 
