@@ -23,4 +23,5 @@ All day-of materials live in `workshop/`: `slides.md` (Marp deck), `lab1-handout
 - Just open this folder in Cowork — no extra setup needed beyond what's already here.
 
 ## Pre-work reminder
+- Run the presenter setup in `README.md` → Prerequisites (`brew bundle`, Claude Code install, `rtk trust`, render slides).
 - Confirm your own Pro/Max or Console access to Claude Code + Cowork is active before the day.
