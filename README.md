@@ -35,6 +35,10 @@ Notes:
 - The RTK guardrail hook (`.claude/settings.json` → `.claude/hooks/rtk-guardrail.py`) silently no-ops if `rtk` isn't installed — cloning without rtk changes nothing.
 - Without `rtk trust`, rtk still works but ignores this repo's custom `.rtk/filters.toml`.
 
+## AI brain bootstrap (showcase)
+
+`workshop/ai-brain-setup.sh` is the presenter's real machine-bootstrap script for the "AI brain" setup shown in the afternoon segment: one idempotent shell script that writes eight skills (as heredoc'd markdown) into `~/.claude/skills/` and lays out the knowledge-hub directories. It is included to **read, not run** — it targets the global Claude config and its cleanup step deletes flat `*.md` files in `~/.claude/skills/`; the header comment has the details. Adapt the paths before using it for your own setup.
+
 ## Usage
 
 ```bash

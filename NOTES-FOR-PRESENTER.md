@@ -18,6 +18,7 @@ All day-of materials live in `workshop/`: `slides.md` (Marp deck), `lab1-handout
 - `.claude/schedules/weekly-digest.md` — illustrative only, talk through it, don't actually register it.
 - `CLAUDE.md` / `AGENTS.md` / `.claude/wiki/` — walk through the three-tier knowledge architecture using this repo as the concrete example; the page compound just wrote is now part of it.
 - RTK wrap: `.rtk/filters.toml` on screen — custom output filters as the extension mechanism; note the repo's hook is a simplified copy (the full version auto-syncs its blocked set with filters.toml).
+- Closing beat: open `workshop/ai-brain-setup.sh` — the real bootstrap script. Punchline: the entire AI brain is one idempotent shell script; skills are just heredoc'd markdown. Scroll it, don't run it (the header explains why — it writes to the global `~/.claude/skills/` and prunes flat .md files there).
 
 ## 16:25 Claude Cowork
 - Just open this folder in Cowork — no extra setup needed beyond what's already here.

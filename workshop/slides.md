@@ -178,6 +178,7 @@ You are the copy-paste layer. That's the bottleneck.
 - **Schedules**: agents that run on a cron, without you
 - **Memory**: CLAUDE.md, per-project wikis, persistent memory dirs
 - **RTK**: a token-saving proxy layer — same work, ~80-90% fewer tokens on shell output
+- The punchline: the entire setup bootstraps from **one idempotent shell script**
 
 ## Demo 3 — Claude Cowork (20 min)
 
