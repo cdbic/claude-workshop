@@ -1,3 +1,11 @@
-# Project Wiki Index
+# notes-cli — Knowledge Hub
 
-- [Architecture](architecture.md) — how notes_cli is put together and why it's this simple
+## Pages
+
+| Page | Summary |
+|---|---|
+| [Architecture](architecture.md) | How notes_cli is put together and why it's this simple |
+
+## Gaps / To document
+
+_Things that should be here but aren't yet._
