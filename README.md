@@ -51,6 +51,8 @@ python -m notes_cli.cli list
 python -m notes_cli.cli done 1
 ```
 
+Notes are stored in `notes.json` in the current working directory.
+
 ## Tests
 
 ```bash
