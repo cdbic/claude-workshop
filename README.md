@@ -58,3 +58,5 @@ Notes are stored in `notes.json` in the current working directory.
 ```bash
 python -m unittest tests.test_cli
 ```
+
+Uses Python's built-in `unittest` — no test framework dependency.
